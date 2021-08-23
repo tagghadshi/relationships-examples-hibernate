@@ -1,9 +1,8 @@
-package com.tcs.hibernate;
+package com.tcs.entity.onetoone;
 
 import org.hibernate.Session;
 
-import com.tcs.entity.AccountEntity;
-import com.tcs.entity.EmployeeEntity;
+import com.tcs.hibernate.HibernateUtil;
 
 public class TestAssociation {
 	public static void main(String[] args) {

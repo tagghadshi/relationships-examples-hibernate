@@ -1,4 +1,4 @@
-package com.tcs.entity;
+package com.tcs.entity.onetoone;
 
 import java.io.Serializable;
 
