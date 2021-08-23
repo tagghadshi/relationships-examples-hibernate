@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class EmployeeEntity implements Serializable {
@@ -20,16 +21,25 @@ public class EmployeeEntity implements Serializable {
 	private String lastName;
 	private String email;
 
-	
-	
 	/**
 	 * One-To-One With Foreign Key Associate
+	 * 
 	 * @OneToOne
-	 *@JoinColumn(name = "ACCOUNT_ID")
+	 * @JoinColumn(name = "ACCOUNT_ID")
 	 */
+
+	/**
+	 * One-To-One With Common Join Table
+	 * 
+	 * @OneToOne(cascade = CascadeType.ALL)
+	 * @JoinTable(name="EMPLOYEE_ACCCOUNT", joinColumns
+	 *                                      = @JoinColumn(name="EMPLOYEE_ID"),
+	 *                                      inverseJoinColumns
+	 *                                      = @JoinColumn(name="ACCOUNT_ID"))
+	 */
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinTable(name="EMPLOYEE_ACCCOUNT", joinColumns = @JoinColumn(name="EMPLOYEE_ID"),
-	inverseJoinColumns = @JoinColumn(name="ACCOUNT_ID"))
+	@PrimaryKeyJoinColumn
 	private AccountEntity account;
 
 	public AccountEntity getAccount() {

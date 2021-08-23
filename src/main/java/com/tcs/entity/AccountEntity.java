@@ -2,6 +2,7 @@ package com.tcs.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,8 @@ public class AccountEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String accountNumber;
-
-	@OneToOne(mappedBy = "account")
+	
+	@OneToOne(mappedBy="account", cascade=CascadeType.ALL)
 	private EmployeeEntity employee;
 
 	public Integer getId() {
@@ -41,5 +42,4 @@ public class AccountEntity implements Serializable {
 	public void setEmployee(EmployeeEntity employee) {
 		this.employee = employee;
 	}
-
 }
