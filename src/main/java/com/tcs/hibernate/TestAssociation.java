@@ -20,10 +20,10 @@ public class TestAssociation {
 		emp.setLastName("user");
 
 		// Save Account
-		session.saveOrUpdate(account);
+		session.save(account);
 		// Save Employee
 		emp.setAccount(account);
-		session.saveOrUpdate(emp);
+		session.save(emp);
 
 		session.getTransaction().commit();
 		HibernateUtil.shutdown();
