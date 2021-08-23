@@ -15,5 +15,7 @@
 		<mapping class="com.tcs.entity.onetoone.AccountEntity"/>
 		<mapping class="com.tcs.entity.onetomany.EmployeeEntity"/>
 		<mapping class="com.tcs.entity.onetomany.AccountEntity"/>
+		<mapping class="com.tcs.entity.manytomany.ReaderEntity"/>
+		<mapping class="com.tcs.entity.manytomany.SubscriptionEntity"/>
 	</session-factory>
 </hibernate-configuration>
