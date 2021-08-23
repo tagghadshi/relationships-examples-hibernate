@@ -10,22 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class AccountEntity implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class AccountEntity extends BaseEntity implements Serializable {
+
 	private String accountNumber;
-	
-	@OneToOne(mappedBy="account", cascade=CascadeType.ALL)
+
+	@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
 	private EmployeeEntity employee;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getAccountNumber() {
 		return accountNumber;

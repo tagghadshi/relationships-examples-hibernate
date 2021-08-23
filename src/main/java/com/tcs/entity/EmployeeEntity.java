@@ -13,10 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-public class EmployeeEntity implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class EmployeeEntity extends BaseEntity implements Serializable {
+
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -38,8 +36,10 @@ public class EmployeeEntity implements Serializable {
 	 *                                      = @JoinColumn(name="ACCOUNT_ID"))
 	 */
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@PrimaryKeyJoinColumn
+	@OneToOne
+	@JoinColumn(name = "ACCOUNT_ID")
 	private AccountEntity account;
 
 	public AccountEntity getAccount() {
@@ -48,14 +48,6 @@ public class EmployeeEntity implements Serializable {
 
 	public void setAccount(AccountEntity account) {
 		this.account = account;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
